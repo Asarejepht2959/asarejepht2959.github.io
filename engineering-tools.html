@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>project 03 · software · olivier claisse</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <a class="logo" href="index.html">olivier.</a>
+
+      <div class="nav-links">
+        <a href="index.html#projects">projects</a>
+        <a href="index.html#about">about</a>
+        <a href="index.html#contact">contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="project-page-hero container">
+      <a class="project-page-back" href="index.html#projects">← back to projects</a>
+
+      <p class="eyebrow">project 03 · software</p>
+
+      <h1><strong>engineering</strong> tools</h1>
+
+      <p class="project-page-intro">
+        small python and matlab utilities for calculations, numerical processing, automation and repetitive technical workflows.
+      </p>
+
+      <div class="project-page-meta tags">
+        <span>python</span><span>matlab</span><span>automation</span><span>engineering</span>
+      </div>
+    </section>
+
+    <section class="slideshow-section container">
+      <div class="slideshow" data-slideshow>
+        <div class="slideshow-stage">
+          <img class="slide active" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1600&q=82" alt="programming workspace placeholder image">
+          <img class="slide" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=82" alt="source code placeholder image">
+          <img class="slide" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=82" alt="software development workspace placeholder image">
+        </div>
+
+        <div class="slideshow-ui">
+          <button class="slide-button" type="button" data-prev aria-label="previous image">←</button>
+
+          <div class="slide-status">
+            <span data-current>01</span>
+
+            <div class="slide-progress">
+              <i data-progress></i>
+            </div>
+
+            <span>03</span>
+          </div>
+
+          <button class="slide-button" type="button" data-next aria-label="next image">→</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="project-story-layout">
+        <div>
+          <p class="eyebrow">story</p>
+          <h2>removing repetitive work through <strong>software.</strong></h2>
+        </div>
+
+        <div class="project-story-copy">
+        <p>small engineering scripts are most useful when they disappear into the workflow: input data, perform the calculation and return something immediately useful.</p>
+        <p>this project group collects python and matlab tools for calculations, data processing, automation and technical experiments.</p>
+
+          <p class="story-placeholder">
+            replace this placeholder copy later with the exact problem, iterations,
+            failures, measurements and final result from your project.
+          </p>
+
+          <div class="project-facts">
+        <div class="fact">
+          <span>language</span>
+          <strong>python</strong>
+        </div>
+        <div class="fact">
+          <span>analysis</span>
+          <strong>matlab</strong>
+        </div>
+        <div class="fact">
+          <span>focus</span>
+          <strong>automation</strong>
+        </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <span>© 2026 olivier claisse</span>
+    <a href="index.html">home ↑</a>
+  </footer>
+
+  <script>
+    (() => {
+      const root = document.querySelector("[data-slideshow]");
+      if (!root) return;
+
+      const slides = [...root.querySelectorAll(".slide")];
+      const prev = root.querySelector("[data-prev]");
+      const next = root.querySelector("[data-next]");
+      const current = root.querySelector("[data-current]");
+      const progress = root.querySelector("[data-progress]");
+
+      let index = 0;
+      let timer;
+
+      const render = () => {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle("active", i === index);
+        });
+
+        current.textContent = String(index + 1).padStart(2, "0");
+        progress.style.transform = `translateX(${index * 100}%)`;
+      };
+
+      const go = (direction) => {
+        index = (index + direction + slides.length) % slides.length;
+        render();
+        restart();
+      };
+
+      const restart = () => {
+        clearInterval(timer);
+        timer = setInterval(() => {
+          index = (index + 1) % slides.length;
+          render();
+        }, 4500);
+      };
+
+      prev.addEventListener("click", () => go(-1));
+      next.addEventListener("click", () => go(1));
+
+      render();
+      restart();
+    })();
+  </script>
+</body>
+</html>
