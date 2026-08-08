@@ -1356,185 +1356,233 @@ svg {
 
 
 /* =========================================
-   ORB ANIMATION
+   ORB / ELECTRON SYSTEM
 ========================================= */
 
 .orb-container {
-
   position: absolute;
 
   left: 0;
   right: 0;
-
   bottom: 0;
 
-  height: 50%;
+  height: 52%;
+
+  perspective: 900px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transform-style: preserve-3d;
 }
 
 
-.orb {
+/* Core sphere */
 
+.orb {
   position: absolute;
 
-  left: 50%;
-  bottom: 90px;
-
-  width: 190px;
-  height: 190px;
-
-  transform:
-    translateX(-50%);
+  width: 180px;
+  height: 180px;
 
   border-radius: 50%;
 
-  background:
+  z-index: 5;
 
+  background:
     radial-gradient(
       circle at 32% 25%,
-      white,
-      #7dbbff 20%,
-      #147ce5 55%,
-      #003f88
+      #ffffff,
+      #7dbbff 18%,
+      #147ce5 52%,
+      #003b80 100%
     );
 
   box-shadow:
-
-    0 30px 100px
-    rgba(41,151,255,0.4),
-
-    0 0 50px
-    rgba(41,151,255,0.15),
-
-    inset
-    -25px -30px 50px
-    rgba(0,0,0,0.25);
+    0 25px 90px rgba(41, 151, 255, 0.4),
+    0 0 50px rgba(41, 151, 255, 0.18),
+    inset -25px -30px 50px rgba(0, 0, 0, 0.3);
 
   animation:
-    orbFloat
-    4s
-    ease-in-out
-    infinite;
+    orb-float 4s ease-in-out infinite;
 }
 
 
-@keyframes orbFloat {
+@keyframes orb-float {
 
   0%,
   100% {
-
     transform:
-      translateX(-50%)
       translateY(0)
       scale(1);
-
   }
 
   50% {
-
     transform:
-      translateX(-50%)
-      translateY(-12px)
-      scale(1.04);
-
+      translateY(-8px)
+      scale(1.025);
   }
+
 }
 
 
-.orbit {
+/* Electron rings */
+
+.electron-orbit {
+  position: absolute;
+
+  width: 340px;
+  height: 120px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(41, 151, 255, 0.32);
+
+  transform-style: preserve-3d;
+
+  box-shadow:
+    0 0 18px rgba(41, 151, 255, 0.04);
+}
+
+
+/* Ring 1 */
+
+.orbit-a {
+  animation:
+    orbit-a 7s linear infinite;
+}
+
+
+@keyframes orbit-a {
+
+  from {
+    transform:
+      rotateX(68deg)
+      rotateZ(0deg);
+  }
+
+  to {
+    transform:
+      rotateX(68deg)
+      rotateZ(360deg);
+  }
+
+}
+
+
+/* Ring 2 */
+
+.orbit-b {
+  animation:
+    orbit-b 9s linear infinite reverse;
+}
+
+
+@keyframes orbit-b {
+
+  from {
+    transform:
+      rotateY(65deg)
+      rotateZ(40deg)
+      rotateX(0deg);
+  }
+
+  to {
+    transform:
+      rotateY(65deg)
+      rotateZ(40deg)
+      rotateX(360deg);
+  }
+
+}
+
+
+/* Ring 3 */
+
+.orbit-c {
+  animation:
+    orbit-c 11s linear infinite;
+}
+
+
+@keyframes orbit-c {
+
+  from {
+    transform:
+      rotateY(-65deg)
+      rotateZ(-35deg)
+      rotateX(0deg);
+  }
+
+  to {
+    transform:
+      rotateY(-65deg)
+      rotateZ(-35deg)
+      rotateX(360deg);
+  }
+
+}
+
+
+/* Electron particles */
+
+.electron {
+  position: absolute;
+
+  top: 50%;
+  left: -5px;
+
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: #8bc5ff;
+
+  box-shadow:
+    0 0 8px rgba(100, 180, 255, 1),
+    0 0 18px rgba(41, 151, 255, 0.7),
+    0 0 30px rgba(41, 151, 255, 0.35);
+
+  transform:
+    translateY(-50%);
+}
+
+
+/* Make electrons subtly pulse */
+
+.electron::after {
+  content: "";
 
   position: absolute;
 
-  left: 50%;
-
-  border:
-    1px solid
-    rgba(41,151,255,0.25);
+  inset: -4px;
 
   border-radius: 50%;
-}
 
-
-.orbit-1 {
-
-  bottom: 65px;
-
-  width: 340px;
-  height: 100px;
+  border:
+    1px solid rgba(120, 195, 255, 0.4);
 
   animation:
-    orbit1
-    14s
-    linear
-    infinite;
+    electron-pulse 1.7s ease-in-out infinite;
 }
 
 
-.orbit-2 {
+@keyframes electron-pulse {
 
-  bottom: 62px;
-
-  width: 280px;
-  height: 160px;
-
-  animation:
-    orbit2
-    18s
-    linear
-    infinite reverse;
-}
-
-
-@keyframes orbit1 {
-
-  from {
-
-    transform:
-      translateX(-50%)
-      rotate(-10deg);
-
+  0%,
+  100% {
+    transform: scale(0.7);
+    opacity: 0;
   }
 
-  to {
-
-    transform:
-      translateX(-50%)
-      rotate(350deg);
-
-  }
-}
-
-
-@keyframes orbit2 {
-
-  from {
-
-    transform:
-      translateX(-50%)
-      rotate(45deg);
-
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
   }
 
-  to {
-
-    transform:
-      translateX(-50%)
-      rotate(405deg);
-
-  }
-}
-
-
-.dark-project {
-
-  background:
-
-    radial-gradient(
-      circle at 80% 15%,
-      rgba(41,151,255,0.15),
-      transparent 45%
-    ),
-
-    #050506;
 }
 
 
