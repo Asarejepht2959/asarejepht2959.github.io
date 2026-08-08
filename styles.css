@@ -1356,7 +1356,7 @@ svg {
 
 
 /* =========================================
-   ORB / ELECTRON SYSTEM
+   ATOM ORB
 ========================================= */
 
 .orb-container {
@@ -1364,27 +1364,25 @@ svg {
 
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 35px;
 
-  height: 52%;
-
-  perspective: 900px;
+  height: 360px;
 
   display: flex;
-  justify-content: center;
   align-items: center;
-
-  transform-style: preserve-3d;
+  justify-content: center;
 }
 
 
-/* Core sphere */
+/* =========================================
+   CENTRAL SPHERE
+========================================= */
 
 .orb {
   position: absolute;
 
-  width: 180px;
-  height: 180px;
+  width: 175px;
+  height: 175px;
 
   border-radius: 50%;
 
@@ -1393,19 +1391,20 @@ svg {
   background:
     radial-gradient(
       circle at 32% 25%,
-      #ffffff,
-      #7dbbff 18%,
-      #147ce5 52%,
-      #003b80 100%
+      #ffffff 0%,
+      #9bcdff 12%,
+      #2997ff 35%,
+      #0866c8 65%,
+      #00356f 100%
     );
 
   box-shadow:
-    0 25px 90px rgba(41, 151, 255, 0.4),
-    0 0 50px rgba(41, 151, 255, 0.18),
+    0 25px 90px rgba(41, 151, 255, 0.38),
+    0 0 60px rgba(41, 151, 255, 0.18),
     inset -25px -30px 50px rgba(0, 0, 0, 0.3);
 
   animation:
-    orb-float 4s ease-in-out infinite;
+    orb-float 5s ease-in-out infinite;
 }
 
 
@@ -1413,160 +1412,304 @@ svg {
 
   0%,
   100% {
-    transform:
-      translateY(0)
-      scale(1);
+    transform: translateY(0);
   }
 
   50% {
-    transform:
-      translateY(-8px)
-      scale(1.025);
+    transform: translateY(-7px);
   }
 
 }
 
 
-/* Electron rings */
+/* =========================================
+   THREE ORBITAL RINGS
+========================================= */
 
 .electron-orbit {
   position: absolute;
 
-  width: 340px;
-  height: 120px;
+  width: 350px;
+  height: 115px;
+
+  left: 50%;
+  top: 50%;
+
+  margin-left: -175px;
+  margin-top: -57.5px;
 
   border-radius: 50%;
 
   border:
-    1px solid rgba(41, 151, 255, 0.32);
-
-  transform-style: preserve-3d;
+    1px solid rgba(100, 185, 255, 0.38);
 
   box-shadow:
-    0 0 18px rgba(41, 151, 255, 0.04);
+    0 0 20px rgba(41, 151, 255, 0.06);
+
+  z-index: 3;
 }
 
 
-/* Ring 1 */
+/* Horizontal-ish ring */
 
-.orbit-a {
-  animation:
-    orbit-a 7s linear infinite;
+.orbit-1 {
+  transform:
+    rotate(8deg);
 }
 
 
-@keyframes orbit-a {
+/* Diagonal ring */
 
-  from {
-    transform:
-      rotateX(68deg)
-      rotateZ(0deg);
-  }
-
-  to {
-    transform:
-      rotateX(68deg)
-      rotateZ(360deg);
-  }
-
+.orbit-2 {
+  transform:
+    rotate(67deg);
 }
 
 
-/* Ring 2 */
+/* Opposite diagonal ring */
 
-.orbit-b {
-  animation:
-    orbit-b 9s linear infinite reverse;
+.orbit-3 {
+  transform:
+    rotate(-52deg);
 }
 
 
-@keyframes orbit-b {
-
-  from {
-    transform:
-      rotateY(65deg)
-      rotateZ(40deg)
-      rotateX(0deg);
-  }
-
-  to {
-    transform:
-      rotateY(65deg)
-      rotateZ(40deg)
-      rotateX(360deg);
-  }
-
-}
-
-
-/* Ring 3 */
-
-.orbit-c {
-  animation:
-    orbit-c 11s linear infinite;
-}
-
-
-@keyframes orbit-c {
-
-  from {
-    transform:
-      rotateY(-65deg)
-      rotateZ(-35deg)
-      rotateX(0deg);
-  }
-
-  to {
-    transform:
-      rotateY(-65deg)
-      rotateZ(-35deg)
-      rotateX(360deg);
-  }
-
-}
-
-
-/* Electron particles */
+/* =========================================
+   ELECTRONS
+========================================= */
 
 .electron {
   position: absolute;
 
-  top: 50%;
-  left: -5px;
-
   width: 9px;
   height: 9px;
 
+  top: 50%;
+  left: 50%;
+
+  margin:
+    -4.5px 0 0 -4.5px;
+
   border-radius: 50%;
 
-  background: #8bc5ff;
+  background: #a7d5ff;
 
   box-shadow:
-    0 0 8px rgba(100, 180, 255, 1),
-    0 0 18px rgba(41, 151, 255, 0.7),
-    0 0 30px rgba(41, 151, 255, 0.35);
+    0 0 7px #ffffff,
+    0 0 14px rgba(79, 169, 255, 0.9),
+    0 0 26px rgba(41, 151, 255, 0.55);
 
-  transform:
-    translateY(-50%);
+  z-index: 8;
 }
 
 
-/* Make electrons subtly pulse */
+/* =========================================
+   ELECTRON MOTION
+========================================= */
+
+.electron-1 {
+  animation:
+    electron-orbit-1
+    6s
+    linear
+    infinite;
+}
+
+
+.electron-2 {
+  animation:
+    electron-orbit-2
+    8s
+    linear
+    infinite;
+}
+
+
+.electron-3 {
+  animation:
+    electron-orbit-3
+    10s
+    linear
+    infinite;
+}
+
+
+/*
+   175px horizontal radius
+   57px vertical radius
+*/
+
+@keyframes electron-orbit-1 {
+
+  0% {
+    transform:
+      translate(175px, 0);
+  }
+
+  12.5% {
+    transform:
+      translate(124px, 40px);
+  }
+
+  25% {
+    transform:
+      translate(0, 57px);
+  }
+
+  37.5% {
+    transform:
+      translate(-124px, 40px);
+  }
+
+  50% {
+    transform:
+      translate(-175px, 0);
+  }
+
+  62.5% {
+    transform:
+      translate(-124px, -40px);
+  }
+
+  75% {
+    transform:
+      translate(0, -57px);
+  }
+
+  87.5% {
+    transform:
+      translate(124px, -40px);
+  }
+
+  100% {
+    transform:
+      translate(175px, 0);
+  }
+
+}
+
+
+@keyframes electron-orbit-2 {
+
+  0% {
+    transform:
+      translate(-175px, 0);
+  }
+
+  12.5% {
+    transform:
+      translate(-124px, -40px);
+  }
+
+  25% {
+    transform:
+      translate(0, -57px);
+  }
+
+  37.5% {
+    transform:
+      translate(124px, -40px);
+  }
+
+  50% {
+    transform:
+      translate(175px, 0);
+  }
+
+  62.5% {
+    transform:
+      translate(124px, 40px);
+  }
+
+  75% {
+    transform:
+      translate(0, 57px);
+  }
+
+  87.5% {
+    transform:
+      translate(-124px, 40px);
+  }
+
+  100% {
+    transform:
+      translate(-175px, 0);
+  }
+
+}
+
+
+@keyframes electron-orbit-3 {
+
+  0% {
+    transform:
+      translate(0, 57px);
+  }
+
+  12.5% {
+    transform:
+      translate(-124px, 40px);
+  }
+
+  25% {
+    transform:
+      translate(-175px, 0);
+  }
+
+  37.5% {
+    transform:
+      translate(-124px, -40px);
+  }
+
+  50% {
+    transform:
+      translate(0, -57px);
+  }
+
+  62.5% {
+    transform:
+      translate(124px, -40px);
+  }
+
+  75% {
+    transform:
+      translate(175px, 0);
+  }
+
+  87.5% {
+    transform:
+      translate(124px, 40px);
+  }
+
+  100% {
+    transform:
+      translate(0, 57px);
+  }
+
+}
+
+
+/* =========================================
+   ELECTRON PULSE
+========================================= */
 
 .electron::after {
   content: "";
 
   position: absolute;
 
-  inset: -4px;
+  inset: -5px;
 
   border-radius: 50%;
 
   border:
-    1px solid rgba(120, 195, 255, 0.4);
+    1px solid rgba(120, 195, 255, 0.45);
 
   animation:
-    electron-pulse 1.7s ease-in-out infinite;
+    electron-pulse
+    1.8s
+    ease-in-out
+    infinite;
 }
 
 
@@ -1575,16 +1718,15 @@ svg {
   0%,
   100% {
     transform: scale(0.7);
-    opacity: 0;
+    opacity: 0.2;
   }
 
   50% {
     transform: scale(1.5);
-    opacity: 1;
+    opacity: 0.8;
   }
 
 }
-
 
 /* =========================================
    SKILLS
