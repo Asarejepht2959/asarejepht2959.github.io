@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal portfolio website" />
+  <title>Olivier | Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="#home">Olivier.</a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#work">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-copy reveal">
+        <span class="eyebrow">Mechatronics · Engineering · Design</span>
+        <h1>
+          I build things where
+          <span>hardware meets software.</span>
+        </h1>
+
+        <p class="hero-text">
+          Mechatronics engineering student focused on robotics, embedded systems,
+          electronics and minimal product design.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">View projects</a>
+          <a class="button button-secondary" href="#contact">Contact me</a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal delay-one" aria-hidden="true">
+        <div class="device-card">
+          <div class="device-topbar">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="device-screen">
+            <div class="code-line line-wide"></div>
+            <div class="code-line line-medium"></div>
+            <div class="code-line line-short"></div>
+
+            <div class="system-grid">
+              <div class="system-tile">
+                <span class="tile-label">Control</span>
+                <strong>PID</strong>
+              </div>
+
+              <div class="system-tile">
+                <span class="tile-label">Logic</span>
+                <strong>Python</strong>
+              </div>
+
+              <div class="system-tile">
+                <span class="tile-label">Hardware</span>
+                <strong>MCU</strong>
+              </div>
+
+              <div class="system-tile accent-tile">
+                <span class="tile-label">Status</span>
+                <strong>Online</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="about">
+      <div class="section-heading reveal">
+        <span class="eyebrow">About</span>
+        <h2>Engineering with restraint.</h2>
+        <p>
+          I like systems that are technically capable, visually calm and easy to
+          understand.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <article class="glass-card feature-card reveal">
+          <span class="card-number">01</span>
+          <h3>Engineering</h3>
+          <p>
+            Mechanical systems, electronics, control theory and embedded
+            development brought together as one system.
+          </p>
+        </article>
+
+        <article class="glass-card feature-card reveal delay-one">
+          <span class="card-number">02</span>
+          <h3>Programming</h3>
+          <p>
+            Python, automation, numerical work and software tools that support
+            physical engineering projects.
+          </p>
+        </article>
+
+        <article class="glass-card feature-card reveal delay-two">
+          <span class="card-number">03</span>
+          <h3>Design</h3>
+          <p>
+            Minimal interfaces, clear hierarchy and functional visual design
+            inspired by industrial design principles.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" id="work">
+      <div class="section-heading reveal">
+        <span class="eyebrow">Selected work</span>
+        <h2>Projects built around real systems.</h2>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card project-large reveal">
+          <div class="project-meta">
+            <span>Embedded Systems</span>
+            <span>2026</span>
+          </div>
+
+          <div class="project-content">
+            <h3>Autonomous Sensor Platform</h3>
+            <p>
+              Modular sensing platform combining a microcontroller, data logging,
+              telemetry and a compact enclosure.
+            </p>
+          </div>
+
+          <div class="project-graphic">
+            <div class="orb"></div>
+            <div class="rings"></div>
+          </div>
+        </article>
+
+        <article class="project-card reveal delay-one">
+          <div class="project-meta">
+            <span>Software</span>
+            <span>Python</span>
+          </div>
+
+          <div class="project-content">
+            <h3>Engineering Toolkit</h3>
+            <p>
+              Small utilities for calculations, data processing and repetitive
+              technical workflows.
+            </p>
+          </div>
+        </article>
+
+        <article class="project-card dark-card reveal delay-two">
+          <div class="project-meta">
+            <span>Robotics</span>
+            <span>Prototype</span>
+          </div>
+
+          <div class="project-content">
+            <h3>Motion Control</h3>
+            <p>
+              Experimental control architecture for precise electromechanical
+              motion.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" id="skills">
+      <div class="skills-panel reveal">
+        <div>
+          <span class="eyebrow">Capabilities</span>
+          <h2>Tools I work with.</h2>
+        </div>
+
+        <div class="skill-list">
+          <span>Python</span>
+          <span>Embedded Systems</span>
+          <span>Electronics</span>
+          <span>Control Systems</span>
+          <span>CAD</span>
+          <span>3D Printing</span>
+          <span>Linux</span>
+          <span>Rapid Prototyping</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="contact">
+      <div class="contact-card reveal">
+        <span class="eyebrow">Contact</span>
+        <h2>Interested in building something useful?</h2>
+        <p>
+          I am open to engineering projects, internships and technical
+          collaborations.
+        </p>
+
+        <a class="button button-primary" href="mailto:hello@example.com">
+          hello@example.com
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <span>© 2026 Olivier</span>
+    <a href="#home">Back to top ↑</a>
+  </footer>
+</body>
+</html>
